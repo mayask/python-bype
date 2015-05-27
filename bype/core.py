@@ -22,7 +22,6 @@ class Bype(object):
             attr = getattr(self, name)
 
             if inspect.ismethod(attr) and not name.startswith('_'):
-                print attr
                 setattr(self, name, fluent(attr))
 
         return self
