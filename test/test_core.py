@@ -19,7 +19,8 @@ class MyServer(object):
 
         for i in range(2, number / 2 + 1):
             if (number % i) == 0:
-                isprime = True
+                isprime = False
+                break
 
         return 200, {'isprime': isprime}
 
@@ -58,7 +59,12 @@ class MyWorkflow(Bype):
 
     def await_response(self, status, response=None):
         print 'assertion', status, response, 'against', self.status, self.response
+        response = response or dict()
+
         assert self.status == status
+
+        for key in response:
+            assert response[key] == self.response[key]
 
 
 def test_simple():
