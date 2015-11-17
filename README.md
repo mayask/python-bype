@@ -6,7 +6,7 @@ bype - Python Fluent DSL
 
 ## Example
 
-```
+```python
 class MyWorkflow(Bype):
     def __init__(self, docstring=None):
         self.server = None
